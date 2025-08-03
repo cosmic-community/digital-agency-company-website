@@ -25,13 +25,13 @@ export default function TestimonialsSection({ testimonials }: TestimonialsSectio
           {testimonials.map((testimonial) => (
             <div key={testimonial.id} className="card p-8 bg-white">
               {/* Rating */}
-              {testimonial.metadata.rating && (
+              {testimonial.metadata.rating?.key && (
                 <div className="flex items-center gap-1 mb-4">
                   {[...Array(5)].map((_, i) => (
                     <svg
                       key={i}
                       className={`w-5 h-5 ${
-                        i < parseInt(testimonial.metadata.rating.key) 
+                        i < parseInt(testimonial.metadata.rating?.key || '0') 
                           ? 'text-yellow-400' 
                           : 'text-gray-300'
                       }`}
